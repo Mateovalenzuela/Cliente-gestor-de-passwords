@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'bootstrap-5.3.2/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/gestionContrasenias.css' %}">
+
+    <title>{% block title %}{% endblock %}</title>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-secondary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Gestor de contraseñas</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/logout/">Cerrar sesión</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page"></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container py-4">
+    <!-- bloque del body -->
+    {% block body %}
+
+    {% endblock %}
+
+</div>
+    <footer></footer>
+
+    <script src="{% static 'bootstrap-5.3.2/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/generarPassword.js' %}"></script>
+
+</body>
+</html>

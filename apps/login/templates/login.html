@@ -1,0 +1,59 @@
+{% extends "./base.html" %}
+
+{% block title %}Login | Gestor de Contraseñas{% endblock %}
+
+
+{% block body %}
+
+<main class="w-100 form-signin m-auto">
+
+  <div class="d-flex centered flex-wrap align-items-center">
+      <div class="d-flex flex-row align-items-center justify-content-around">
+        <img class="mb-2" src="/static/img/django-png.png" alt="" width="20%" height="20%">
+        <img class="mb-2" src="/static/img/postgresql-png.png" alt="" width="20%" height="20%">
+        <img class="mb-2" src="/static/img/python-png.png" alt="" width="20%" height="20%">
+      </div>
+      <div class="d-flex  flex-row justify-content-around">
+        <img class="mb-2" src="/static/img/javascript-png.png" alt="" width="20%" height="20%">
+        <img class="mb-2" src="/static/img/bootstrap-png.png" alt="" width="20%" height="20%">
+      </div>
+  </div>
+
+  <form class="form-signin" method="POST"> {% csrf_token %}
+
+    {% if messages %}
+    <br>
+    {% for message in messages %}
+    <div class="alert alert-primary alert-dismissible" role="alert">
+      <strong>{{ message }}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <h1 class="h3 mb-3 fw-normal">Por favor, inicie sesión</h1>
+
+    {% if form.error_messages %}
+      <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+        <strong>Advertencia: </strong> {{ form.get_invalid_login_error }}
+      </div>
+    {% endif %}
+
+    <div class="form-floating">
+      {{ form.username }}
+      <label for="floatingInput">Username</label>
+    </div>
+    <div class="form-floating">
+      {{ form.password }}
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar sesión</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017–2023</p>
+  </form>
+</main>
+
+{% endblock %}
