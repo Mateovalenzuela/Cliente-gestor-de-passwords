@@ -1,18 +1,33 @@
 
 class Password:
-    def __init__(self, id, usuario, password, url="", nombre_sitio="",descripcion=""):
+    def __init__(self, id, usuario, password, url, titulo, descripcion):
         self._id = id
         self._usuario = usuario
         self._password = password
         self._url = url
-        self._nombre_sitio = nombre_sitio
+        self._titulo = titulo
         self._descripcion = descripcion
         self._fecha_creacion = None
-        self._baja = False
+
+
+    def to_json(self):
+        return {
+            "id":self.id,
+            "usuario":self.usuario,
+            "password": self.password,
+            "url": self.url,
+            "titulo":self.titulo,
+            "descripcion": self.descripcion,
+            "fecha_creacion": self.fecha_creacion
+        }
 
     @property
     def id(self):
         return self._id
+
+    @id.setter
+    def id(self, id):
+        self._id = id
 
     @property
     def usuario(self):
@@ -39,12 +54,12 @@ class Password:
         self._url = url
 
     @property
-    def nombre_sitio(self):
-        return self._nombre_sitio
+    def titulo(self):
+        return self._titulo
 
-    @nombre_sitio.setter
-    def nombre_sitio(self, nombre_sitio):
-        self._nombre_sitio = nombre_sitio
+    @titulo.setter
+    def titulo(self, titulo):
+        self._titulo = titulo
 
     @property
     def descripcion(self):
@@ -61,14 +76,5 @@ class Password:
     @fecha_creacion.setter
     def fecha_creacion(self, fecha_creacion):
         self._fecha_creacion = fecha_creacion
-
-    @property
-    def baja(self):
-        return self._baja
-
-    @baja.setter
-    def baja(self, baja: bool):
-        self._baja = baja
-
 
 
