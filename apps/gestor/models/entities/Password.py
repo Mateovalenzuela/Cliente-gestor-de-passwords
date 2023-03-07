@@ -1,13 +1,13 @@
 
 class Password:
-    def __init__(self, id, usuario, password, url, titulo, descripcion):
+    def __init__(self, id, usuario, password, url, titulo, descripcion, fecha_creacion=None):
         self._id = id
         self._usuario = usuario
         self._password = password
         self._url = url
         self._titulo = titulo
         self._descripcion = descripcion
-        self._fecha_creacion = None
+        self._fecha_creacion = fecha_creacion
 
 
     def to_json(self):

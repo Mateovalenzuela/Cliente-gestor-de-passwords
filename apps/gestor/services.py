@@ -3,7 +3,9 @@ import requests, json
 
 def get_passwords():
     try:
+        print('request')
         response = requests.get('http://localhost:5000/api/passwords/')
+        print('response')
         if response.status_code == 200:
             return response.json()
         else:

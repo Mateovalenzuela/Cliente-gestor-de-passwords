@@ -16,7 +16,7 @@ def home(request):
     for password in passwords:
         objPassword = Password(
             password['id'], password['usuario'], password['password'], password['url'], password['titulo'],
-            password['descripcion']
+            password['descripcion'], password['fecha_creacion']
         )
         listaDePasswords.append(objPassword)
 
